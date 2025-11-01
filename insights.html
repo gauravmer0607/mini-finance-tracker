@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Insights - Khazana</title>
+    <link rel="stylesheet" href="styles/insights.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">📊 Financial Insights & Analytics</h1>
+        <p class="subtitle">AI-powered analysis of your spending patterns</p>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">💰</div>
+                <div class="metric-label">Average Daily Spending</div>
+                <div class="metric-value" id="avgDaily">₹0</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">📈</div>
+                <div class="metric-label">Highest Expense</div>
+                <div class="metric-value" id="highestExpense">₹0</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">🎯</div>
+                <div class="metric-label">Savings Rate</div>
+                <div class="metric-value" id="savingsRate">0%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <div class="metric-label">Total Transactions</div>
+                <div class="metric-value" id="totalTrans">0</div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h2>Monthly Trend</h2>
+                <canvas id="trendChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Income vs Expense</h2>
+                <canvas id="incomeExpenseChart"></canvas>
+            </div>
+        </div>
+
+        <!-- AI Insights -->
+        <div class="ai-insights">
+            <h2>🤖 AI-Powered Insights</h2>
+            <div class="insights-list" id="insightsList">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Spending Patterns -->
+        <div class="patterns-section">
+            <h2>🔍 Spending Patterns</h2>
+            <div class="patterns-grid" id="patternsGrid">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Predictions -->
+        <div class="predictions-section">
+            <h2>🔮 Next Month Prediction</h2>
+            <div class="prediction-card">
+                <div class="prediction-item">
+                    <span>Predicted Expenses:</span>
+                    <strong id="predictedExpense">₹0</strong>
+                </div>
+                <div class="prediction-item">
+                    <span>Recommended Budget:</span>
+                    <strong id="recommendedBudget">₹0</strong>
+                </div>
+                <div class="prediction-item">
+                    <span>Savings Goal:</span>
+                    <strong id="savingsGoal">₹0</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Button -->
+        <div class="export-section">
+            <button class="export-btn" onclick="exportPythonData()">
+                🐍 Export Data for Python ML Analysis
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/chart-utils.js"></script>
+    <script src="scripts/insights.js"></script>
+</body>
+</html>

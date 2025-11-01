@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khazana - Smart Finance Tracker for Students</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <div class="logo-icon">🪙</div>
+          <span>Khazana</span>
+        </a>
+        <!-- Auth Buttons (Login/Signup) -->
+        <div id="authButtons" class="nav-buttons">
+          <a href="login.html" class="btn btn-login">Login</a>
+          <a href="signup.html" class="btn btn-signup">Sign Up</a>
+        </div>
+        <!-- User Menu (Hidden by default) -->
+        <div id="userMenuContainer" class="user-menu-container hidden">
+          <button class="user-menu-btn" onclick="toggleUserMenu()">
+            <span id="userNameDisplay"></span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="user-icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </button>
+          <div id="userDropdown" class="dropdown-menu hidden">
+            <a href="#" class="dropdown-item" onclick="showProfile()">Profile</a>
+            <a href="#" class="dropdown-item" onclick="logout()">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dynamic Content Container -->
+    <div id="dynamicContent">
+      <!-- Hero Section -->
+      <section id="heroSection" class="hero">
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1>Your Digital <span style="color: #4caf50">Khazana</span></h1>
+            <p class="tagline">
+              Smart Finance Tracker Built for Students & Young Professionals
+            </p>
+            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem">
+              Track expenses, manage budget, get AI-powered insights, and take control
+              of your finances - all in one place.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap">
+              <a
+                href="signup.html"
+                class="btn btn-login"
+                style="padding: 15px 30px; font-size: 1.1rem"
+              >
+                Get Started Free
+              </a>
+              <a
+                href="#features"
+                class="btn btn-signup"
+                style="
+                  padding: 15px 30px;
+                  font-size: 1.1rem;
+                  background: transparent;
+                  border: 2px solid #4caf50;
+                  color: #4caf50;
+                "
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="money-notes">
+              <div class="note" style="--delay: 0s"></div>
+              <div class="note" style="--delay: 0.5s"></div>
+              <div class="note" style="--delay: 1s"></div>
+              <div class="note" style="--delay: 0.3s"></div>
+              <div class="note" style="--delay: 0.8s"></div>
+              <div class="note" style="--delay: 1.3s"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="operations-section" id="features">
+        <div class="container">
+          <h2 class="section-title">Powerful Features for Smart Money Management</h2>
+          <div class="operations-grid">
+            <a href="transaction.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">➕</div>
+                <h3>Quick Transactions</h3>
+                <p>
+                  Add income or expenses in seconds. Categorize automatically
+                  with smart suggestions.
+                </p>
+              </div>
+            </a>
+
+            <a href="budget-planner.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">🎯</div>
+                <h3>Budget Planner</h3>
+                <p>
+                  Set monthly budgets, track spending limits, and get alerts
+                  before you overspend.
+                </p>
+              </div>
+            </a>
+
+            <a href="insights.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">📊</div>
+                <h3>AI Insights & Graphs</h3>
+                <p>
+                  Visual charts, spending patterns, ML-powered predictions, and
+                  personalized recommendations.
+                </p>
+              </div>
+            </a>
+
+            <a href="transaction-history.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">📈</div>
+                <h3>Transaction History</h3>
+                <p>
+                  Complete history with month/year filters. See where your money
+                  goes with detailed breakdowns.
+                </p>
+              </div>
+            </a>
+
+            <a href="search-transactions.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">🔍</div>
+                <h3>Smart Search</h3>
+                <p>
+                  Find any transaction instantly by amount, date, category, or
+                  description. Lightning fast!
+                </p>
+              </div>
+            </a>
+
+            <a href="category-management.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">🗂️</div>
+                <h3>Categories</h3>
+                <p>
+                  Organize expenses into custom categories. Track spending by
+                  Food, Transport, Education, etc.
+                </p>
+              </div>
+            </a>
+
+            <a href="view-balance.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">💰</div>
+                <h3>Balance Check</h3>
+                <p>
+                  Secure PIN-protected balance view. Real-time calculations with
+                  income/expense breakdown.
+                </p>
+              </div>
+            </a>
+
+            <a href="export-reports.html" class="operation-link">
+              <div class="operation-card">
+                <div class="operation-icon">📱</div>
+                <h3>Export Reports</h3>
+                <p>
+                  Generate PDF/Excel reports for tax filing, parents, or personal
+                  records. One-click export.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Section -->
+      <section class="why-choose">
+        <div class="container">
+          <h2 class="section-title">Why Khazana?</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <span class="feature-icon">⚡</span>
+              <h3>Lightning Fast</h3>
+              <p>
+                Optimized with C++ backend using linked lists and merge sort for
+                instant operations.
+              </p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">🔒</span>
+              <h3>100% Secure</h3>
+              <p>
+                Your data is encrypted and stored securely. PIN-protected access
+                to sensitive info.
+              </p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">📱</span>
+              <h3>Works Offline</h3>
+              <p>
+                All data stored locally. Works without internet. Optional cloud
+                sync available.
+              </p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">🤖</span>
+              <h3>AI-Powered</h3>
+              <p>
+                Machine learning analyzes your spending patterns and gives
+                personalized tips.
+              </p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">📊</span>
+              <h3>Beautiful Charts</h3>
+              <p>
+                Interactive graphs show spending trends, category breakdowns, and
+                monthly comparisons.
+              </p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">🎯</span>
+              <h3>Goal Tracking</h3>
+              <p>
+                Set financial goals and watch your progress. Stay motivated to
+                save more!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>About Khazana</h3>
+            <p>
+              A modern financial management system designed specifically for
+              students and young professionals to track expenses, manage budgets,
+              and achieve financial goals.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <p><a href="#">Home</a></p>
+            <p><a href="#features">Features</a></p>
+            <p><a href="budget-planner.html">Budget Planner</a></p>
+            <p><a href="insights.html">Insights</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Support</h3>
+            <p><a href="#">Help Center</a></p>
+            <p><a href="#">User Guide</a></p>
+            <p><a href="#">FAQ</a></p>
+            <p><a href="#">Contact Support</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <p><a href="#">Privacy Policy</a></p>
+            <p><a href="#">Terms of Service</a></p>
+            <p><a href="#">Security</a></p>
+            <p><a href="#">Data Protection</a></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Khazana. All rights reserved. Built with ❤️ for smarter
+            financial management.
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>

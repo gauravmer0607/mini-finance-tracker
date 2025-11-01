@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Transaction - Khazana</title>
+    <link rel="stylesheet" href="styles/transaction.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Add Transaction</h1>
+        
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-card">
+                <span class="stat-label">Current Balance</span>
+                <span class="stat-value" id="currentBalance">₹0.00</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">This Month</span>
+                <span class="stat-value" id="monthTotal">₹0.00</span>
+            </div>
+        </div>
+        
+        <!-- Transaction Type Selector -->
+        <div class="transaction-types">
+            <div class="type-card" onclick="selectTransactionType('deposit')" data-type="deposit">
+                <span class="type-icon">💰</span>
+                <div class="type-name">Deposit</div>
+            </div>
+            <div class="type-card" onclick="selectTransactionType('withdrawal')" data-type="withdrawal">
+                <span class="type-icon">💸</span>
+                <div class="type-name">Withdrawal</div>
+            </div>
+            <div class="type-card" onclick="selectTransactionType('transfer')" data-type="transfer">
+                <span class="type-icon">💳</span>
+                <div class="type-name">Transfer</div>
+            </div>
+            <div class="type-card" onclick="selectTransactionType('received')" data-type="received">
+                <span class="type-icon">📨</span>
+                <div class="type-name">Received</div>
+            </div>
+        </div>
+
+        <!-- Deposit Form -->
+        <div class="transaction-form" id="depositForm">
+            <form onsubmit="handleSubmit(event, 'deposit')">
+                <div class="form-group">
+                    <label for="depositDate">Date</label>
+                    <input type="date" id="depositDate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="depositAmount">Amount</label>
+                    <input type="number" id="depositAmount" name="amount" step="0.01" min="0.01" placeholder="Enter amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="depositCategory">Category</label>
+                    <select id="depositCategory" name="category" required>
+                        <option value="">Select category</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Business">Business</option>
+                        <option value="Investment">Investment Returns</option>
+                        <option value="Gift">Gift/Prize</option>
+                        <option value="Other">Other Income</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="depositSource">Source/Description</label>
+                    <input type="text" id="depositSource" name="source" placeholder="e.g., Monthly salary, Client payment" required>
+                </div>
+                <button type="submit" class="submit-btn">Add Deposit</button>
+            </form>
+        </div>
+
+        <!-- Withdrawal Form -->
+        <div class="transaction-form" id="withdrawalForm">
+            <form onsubmit="handleSubmit(event, 'withdrawal')">
+                <div class="form-group">
+                    <label for="withdrawalDate">Date</label>
+                    <input type="date" id="withdrawalDate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="withdrawalAmount">Amount</label>
+                    <input type="number" id="withdrawalAmount" name="amount" step="0.01" min="0.01" placeholder="Enter amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="withdrawalCategory">Category</label>
+                    <select id="withdrawalCategory" name="category" required>
+                        <option value="">Select category</option>
+                        <option value="Food">Food & Dining</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills & Utilities</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Healthcare</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="withdrawalReason">Reason/Description</label>
+                    <input type="text" id="withdrawalReason" name="reason" placeholder="e.g., Grocery shopping, Movie tickets" required>
+                </div>
+                <button type="submit" class="submit-btn">Withdraw</button>
+            </form>
+        </div>
+
+        <!-- Transfer Form -->
+        <div class="transaction-form" id="transferForm">
+            <form onsubmit="handleSubmit(event, 'transfer')">
+                <div class="form-group">
+                    <label for="transferDate">Date</label>
+                    <input type="date" id="transferDate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="transferAmount">Amount</label>
+                    <input type="number" id="transferAmount" name="amount" step="0.01" min="0.01" placeholder="Enter amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="transferCategory">Category</label>
+                    <select id="transferCategory" name="category" required>
+                        <option value="">Select category</option>
+                        <option value="Family">Family Support</option>
+                        <option value="Friend">Friend</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Savings">Savings Account</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transferTo">Transfer To</label>
+                    <input type="text" id="transferTo" name="transferTo" placeholder="Recipient name" required>
+                </div>
+                <button type="submit" class="submit-btn">Transfer</button>
+            </form>
+        </div>
+
+        <!-- Received Form -->
+        <div class="transaction-form" id="receivedForm">
+            <form onsubmit="handleSubmit(event, 'received')">
+                <div class="form-group">
+                    <label for="receivedDate">Date</label>
+                    <input type="date" id="receivedDate" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="receivedAmount">Amount</label>
+                    <input type="number" id="receivedAmount" name="amount" step="0.01" min="0.01" placeholder="Enter amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="receivedCategory">Category</label>
+                    <select id="receivedCategory" name="category" required>
+                        <option value="">Select category</option>
+                        <option value="Refund">Refund</option>
+                        <option value="Gift">Gift</option>
+                        <option value="Loan Return">Loan Return</option>
+                        <option value="Payment">Payment Received</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="receivedFrom">Received From</label>
+                    <input type="text" id="receivedFrom" name="receivedFrom" placeholder="Sender name" required>
+                </div>
+                <button type="submit" class="submit-btn">Add Receipt</button>
+            </form>
+        </div>
+
+        <!-- Status Container -->
+        <div class="status-container" id="statusContainer">
+            <div class="loader" id="loader"></div>
+            <div class="success-icon" id="successIcon" style="display: none;">✓</div>
+            <div class="error-icon" id="errorIcon" style="display: none;">✗</div>
+            <div class="success-details" id="successDetails" style="display: none;">
+                <div class="amount-display" id="amountDisplay"></div>
+                <div class="success-message" id="successMessage"></div>
+                <div class="new-balance" id="newBalance"></div>
+            </div>
+            <div class="error-details" id="errorDetails" style="display: none;">
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/transaction.js"></script>
+</body>
+</html>

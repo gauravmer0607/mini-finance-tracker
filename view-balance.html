@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Balance - Khazana</title>
+    <link rel="stylesheet" href="styles/view-balance.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- PIN Entry Screen -->
+        <div class="pin-container" id="pinContainer">
+            <h1 class="pin-title">🔐 Enter PIN</h1>
+            <p class="pin-subtitle">Enter your 6-digit PIN to view balance</p>
+            <p class="pin-hint">Default PIN: <strong>123456</strong></p>
+            
+            <div class="pin-display" id="pinDisplay">
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+            </div>
+
+            <div class="keypad">
+                <button class="key" onclick="addPin('1')">1</button>
+                <button class="key" onclick="addPin('2')">2</button>
+                <button class="key" onclick="addPin('3')">3</button>
+                <button class="key" onclick="addPin('4')">4</button>
+                <button class="key" onclick="addPin('5')">5</button>
+                <button class="key" onclick="addPin('6')">6</button>
+                <button class="key" onclick="addPin('7')">7</button>
+                <button class="key" onclick="addPin('8')">8</button>
+                <button class="key" onclick="addPin('9')">9</button>
+                <button class="key clear-btn" onclick="clearPin()">Clear</button>
+                <button class="key" onclick="addPin('0')">0</button>
+                <button class="key backspace-btn" onclick="backspace()">⌫</button>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+        </div>
+
+        <!-- Balance Display Screen -->
+        <div class="balance-container" id="balanceContainer">
+            <div class="user-info">
+                <div class="user-name" id="userName">Welcome, User</div>
+                <div class="last-updated" id="lastUpdated">Last updated: Just now</div>
+            </div>
+
+            <div class="balance-title">Your Current Balance</div>
+            <div class="balance-amount" id="balanceAmount">
+                <span class="balance-currency">₹</span>0.00
+            </div>
+            
+            <div class="balance-status positive" id="balanceStatus">
+                Positive Balance ✓
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats-grid">
+                <div class="stat-box income">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-label">Total Income</div>
+                    <div class="stat-value" id="totalIncome">₹0.00</div>
+                </div>
+                <div class="stat-box expense">
+                    <div class="stat-icon">📉</div>
+                    <div class="stat-label">Total Expense</div>
+                    <div class="stat-value" id="totalExpense">₹0.00</div>
+                </div>
+            </div>
+
+            <div class="balance-actions">
+                <a href="transaction.html" class="action-btn btn-primary">Add Transaction</a>
+                <a href="transaction-history.html" class="action-btn btn-secondary">View History</a>
+                <a href="insights.html" class="action-btn btn-info">Insights</a>
+                <button class="action-btn btn-danger" onclick="logout()">Lock Screen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/view-balance.js"></script>
+</body>
+</html>

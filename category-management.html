@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management - Khazana</title>
+    <link rel="stylesheet" href="styles/category-management.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">🗂️ Category Management</h1>
+
+        <!-- Category Overview -->
+        <div class="category-grid">
+            <div class="category-overview" id="categoryOverview">
+                <h2>Expense Categories</h2>
+                <div class="categories-list" id="categoriesList">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <div class="category-chart-container">
+                <h2>Spending by Category</h2>
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Add Custom Category -->
+        <div class="add-category-section">
+            <h2>Add Custom Category</h2>
+            <div class="add-category-form">
+                <input type="text" id="newCategoryName" placeholder="Category name (e.g., Hostel Fees)">
+                <select id="categoryType">
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                </select>
+                <input type="text" id="categoryIcon" placeholder="Icon (emoji)" maxlength="2">
+                <button class="add-btn" onclick="addCustomCategory()">Add Category</button>
+            </div>
+        </div>
+
+        <!-- Category Breakdown -->
+        <div class="breakdown-section">
+            <h2>Detailed Breakdown</h2>
+            <div class="breakdown-list" id="breakdownList">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/category-management.js"></script>
+</body>
+</html>

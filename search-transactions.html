@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Transactions - Khazana</title>
+    <link rel="stylesheet" href="styles/search-transactions.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">🔍 Search Transactions</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by amount, description, category..." 
+                       oninput="performSearch()">
+                <button class="search-btn" onclick="performSearch()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Quick Filters -->
+        <div class="quick-filters">
+            <button class="filter-chip" onclick="quickFilter('all')" data-filter="all">All</button>
+            <button class="filter-chip" onclick="quickFilter('deposit')" data-filter="deposit">💰 Deposits</button>
+            <button class="filter-chip" onclick="quickFilter('withdrawal')" data-filter="withdrawal">💸 Withdrawals</button>
+            <button class="filter-chip" onclick="quickFilter('transfer')" data-filter="transfer">💳 Transfers</button>
+            <button class="filter-chip" onclick="quickFilter('received')" data-filter="received">📨 Received</button>
+        </div>
+
+        <!-- Advanced Filters -->
+        <div class="advanced-filters" id="advancedFilters">
+            <h3>Advanced Search</h3>
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label>Amount Range</label>
+                    <div class="range-inputs">
+                        <input type="number" id="minAmount" placeholder="Min" step="0.01">
+                        <span>to</span>
+                        <input type="number" id="maxAmount" placeholder="Max" step="0.01">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Date Range</label>
+                    <div class="range-inputs">
+                        <input type="date" id="startDate">
+                        <span>to</span>
+                        <input type="date" id="endDate">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+            </div>
+            <button class="apply-btn" onclick="applyAdvancedFilters()">Apply Advanced Filters</button>
+        </div>
+
+        <!-- Results -->
+        <div class="results-container">
+            <div class="results-header">
+                <span id="resultsCount">0 transactions found</span>
+                <button class="toggle-advanced" onclick="toggleAdvanced()">
+                    Advanced Filters ▼
+                </button>
+            </div>
+
+            <div class="results-list" id="resultsList">
+                <div class="no-results">
+                    <span class="search-icon">🔍</span>
+                    <p>Start typing to search transactions...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/search-transactions.js"></script>
+</body>
+</html>

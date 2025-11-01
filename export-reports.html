@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export & Reports - Khazana</title>
+    <link rel="stylesheet" href="styles/export-reports.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">📱 Export & Reports</h1>
+        <p class="subtitle">Generate detailed financial reports and export your data</p>
+
+        <!-- Export Options -->
+        <div class="export-grid">
+            <div class="export-card" onclick="exportCSV()">
+                <div class="export-icon">📊</div>
+                <h3>Export to CSV</h3>
+                <p>Download all transactions in CSV format for Excel/Google Sheets</p>
+                <button class="export-btn">Download CSV</button>
+            </div>
+
+            <div class="export-card" onclick="exportPDF()">
+                <div class="export-icon">📄</div>
+                <h3>Generate PDF Report</h3>
+                <p>Create a comprehensive PDF report with charts and analysis</p>
+                <button class="export-btn">Generate PDF</button>
+            </div>
+
+            <div class="export-card" onclick="exportJSON()">
+                <div class="export-icon">💾</div>
+                <h3>Backup Data (JSON)</h3>
+                <p>Create a complete backup of all your financial data</p>
+                <button class="export-btn">Backup Now</button>
+            </div>
+
+            <div class="export-card" onclick="exportForCPP()">
+                <div class="export-icon">⚙️</div>
+                <h3>C++ Analysis File</h3>
+                <p>Export for advanced C++ data structure analysis</p>
+                <button class="export-btn">Export for C++</button>
+            </div>
+
+            <div class="export-card" onclick="exportForPython()">
+                <div class="export-icon">🐍</div>
+                <h3>Python ML Data</h3>
+                <p>Export formatted data for machine learning analysis</p>
+                <button class="export-btn">Export ML Data</button>
+            </div>
+
+            <div class="export-card" onclick="exportMonthlyReport()">
+                <div class="export-icon">📅</div>
+                <h3>Monthly Summary</h3>
+                <p>Get a detailed monthly financial summary report</p>
+                <button class="export-btn">Generate Report</button>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-section">
+            <h2>Export Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Total Transactions</span>
+                    <span class="stat-value" id="totalTransactions">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Date Range</span>
+                    <span class="stat-value" id="dateRange">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Income</span>
+                    <span class="stat-value" id="totalIncome">₹0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Expense</span>
+                    <span class="stat-value" id="totalExpense">₹0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Section -->
+        <div class="import-section">
+            <h2>📥 Import Data</h2>
+            <div class="import-box">
+                <p>Restore your data from a previous backup</p>
+                <label class="import-btn">
+                    Choose Backup File
+                    <input type="file" id="importFile" accept=".json,.txt" onchange="importData(event)" style="display: none;">
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/export-reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #2e7d32, #388e3c);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 20px rgba(46, 125, 50, 0.3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #ffd700, #ffa500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    animation: coinFlip 3s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+@keyframes coinFlip {
+    0%, 100% { transform: rotateY(0deg) scale(1); }
+    25% { transform: rotateY(90deg) scale(0.8); }
+    50% { transform: rotateY(180deg) scale(1); }
+    75% { transform: rotateY(270deg) scale(0.8); }
+}
+
+.back-btn {
+    background: #4caf50;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.container {
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+}
+
+/* PIN Entry Screen */
+.pin-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 450px;
+    width: 90%;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pin-title {
+    font-size: 2rem;
+    color: #2e7d32;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.pin-subtitle {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.pin-hint {
+    color: #ff9800;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    background: rgba(255, 152, 0, 0.1);
+    border-radius: 8px;
+}
+
+.pin-display {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem 0;
+}
+
+.pin-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    transition: all 0.3s ease;
+    border: 2px solid #ccc;
+}
+
+.pin-dot.filled {
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    transform: scale(1.2);
+    border-color: #4caf50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.key {
+    padding: 1.2rem;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+.key:hover {
+    background: #f0f8f0;
+    border-color: #4caf50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.key:active {
+    transform: translateY(0);
+}
+
+.clear-btn {
+    background: #f44336;
+    color: white;
+    border: none;
+}
+
+.clear-btn:hover {
+    background: #d32f2f;
+}
+
+.backspace-btn {
+    background: #ff9800;
+    color: white;
+    border: none;
+}
+
+.backspace-btn:hover {
+    background: #f57c00;
+}
+
+.error-message {
+    color: #f44336;
+    margin-top: 1rem;
+    font-weight: 500;
+    min-height: 24px;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Balance Display Screen */
+.balance-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 600px;
+    width: 90%;
+    display: none;
+    animation: fadeInScale 0.5s ease;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.balance-container.show {
+    display: block;
+}
+
+.user-info {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(129, 199, 132, 0.1));
+    border-radius: 15px;
+    border-left: 4px solid #4caf50;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 1.3rem;
+}
+
+.last-updated {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.balance-title {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.balance-amount {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #2e7d32;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: countUp 1s ease;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.balance-currency {
+    font-size: 2.5rem;
+    vertical-align: top;
+}
+
+.balance-status {
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    margin: 2rem 0;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+.balance-status.positive {
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    color: white;
+}
+
+.balance-status.negative {
+    background: linear-gradient(135deg, #f44336, #e57373);
+    color: white;
+}
+
+.balance-status.zero {
+    background: linear-gradient(135deg, #ff9800, #ffb74d);
+    color: white;
+}
+
+/* Quick Stats Grid */
+.quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.stat-box {
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-box.income {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(129, 199, 132, 0.1));
+    border: 2px solid #4caf50;
+}
+
+.stat-box.expense {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.1), rgba(229, 115, 115, 0.1));
+    border: 2px solid #f44336;
+}
+
+.stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.stat-box.income .stat-value {
+    color: #4caf50;
+}
+
+.stat-box.expense .stat-value {
+    color: #f44336;
+}
+
+/* Action Buttons */
+.balance-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #2196f3, #64b5f6);
+    color: white;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #9c27b0, #ba68c8);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #f44336, #e57373);
+    color: white;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 120px 1rem 2rem;
+    }
+
+    .balance-amount {
+        font-size: 3rem;
+    }
+
+    .balance-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

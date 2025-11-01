@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - Khazana</title>
+    <link rel="stylesheet" href="styles/transaction-history.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">📈 Transaction History</h1>
+
+        <!-- Summary Cards -->
+        <div class="summary-grid">
+            <div class="summary-card income">
+                <h3>Total Income</h3>
+                <div class="amount" id="totalIncome">₹0.00</div>
+                <p id="incomeCount">0 transactions</p>
+            </div>
+            <div class="summary-card expense">
+                <h3>Total Expense</h3>
+                <div class="amount" id="totalExpense">₹0.00</div>
+                <p id="expenseCount">0 transactions</p>
+            </div>
+            <div class="summary-card balance">
+                <h3>Net Balance</h3>
+                <div class="amount" id="netBalance">₹0.00</div>
+                <p id="totalCount">0 total transactions</p>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>Transaction Type</label>
+                    <select id="filterType">
+                        <option value="all">All Types</option>
+                        <option value="deposit">Deposit</option>
+                        <option value="withdrawal">Withdrawal</option>
+                        <option value="transfer">Transfer</option>
+                        <option value="received">Received</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>From Date</label>
+                    <input type="date" id="filterFromDate">
+                </div>
+                <div class="filter-group">
+                    <label>To Date</label>
+                    <input type="date" id="filterToDate">
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn" onclick="applyFilters()">Apply Filters</button>
+                    <button class="filter-btn secondary" onclick="resetFilters()">Reset</button>
+                </div>
+            </div>
+            <div class="export-row">
+                <button class="export-btn" onclick="exportForCPP()">
+                    📤 Export for C++ Processing
+                </button>
+                <button class="export-btn" onclick="exportToCSV()">
+                    📊 Export to CSV
+                </button>
+                <label class="import-btn">
+                    📥 Import from C++
+                    <input type="file" id="cppImport" accept=".txt" onchange="handleCPPImport(event)" style="display: none;">
+                </label>
+            </div>
+        </div>
+
+        <!-- Transaction List -->
+        <div class="transaction-list" id="transactionList">
+            <div class="no-data">Loading transactions...</div>
+        </div>
+    </div>
+
+    <script src="scripts/transaction-history.js"></script>
+</body>
+</html>

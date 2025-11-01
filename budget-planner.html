@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner - Khazana</title>
+    <link rel="stylesheet" href="styles/budget-planner.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🪙</div>
+                <span>Khazana</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">🎯 Budget Planner</h1>
+        <p class="subtitle">Set monthly budgets and track your spending goals</p>
+
+        <!-- Budget Overview -->
+        <div class="budget-overview">
+            <div class="overview-card total">
+                <h3>Total Budget</h3>
+                <div class="amount" id="totalBudget">₹0</div>
+            </div>
+            <div class="overview-card spent">
+                <h3>Total Spent</h3>
+                <div class="amount" id="totalSpent">₹0</div>
+            </div>
+            <div class="overview-card remaining">
+                <h3>Remaining</h3>
+                <div class="amount" id="totalRemaining">₹0</div>
+            </div>
+        </div>
+
+        <!-- Set Budget -->
+        <div class="set-budget-section">
+            <h2>Set Monthly Budget</h2>
+            <div class="budget-form">
+                <select id="budgetCategory">
+                    <option value="">Select Category</option>
+                    <option value="Food">🍕 Food & Dining</option>
+                    <option value="Transport">🚌 Transport</option>
+                    <option value="Shopping">🛍️ Shopping</option>
+                    <option value="Entertainment">🎬 Entertainment</option>
+                    <option value="Education">📚 Education</option>
+                    <option value="Health">🏥 Healthcare</option>
+                    <option value="Bills">📄 Bills & Utilities</option>
+                    <option value="Rent">🏠 Rent</option>
+                    <option value="Other">📌 Other</option>
+                </select>
+                <input type="number" id="budgetAmount" placeholder="Budget amount" step="100" min="0">
+                <button class="set-btn" onclick="setBudget()">Set Budget</button>
+            </div>
+        </div>
+
+        <!-- Budget List -->
+        <div class="budget-list">
+            <h2>Your Budgets</h2>
+            <div class="budgets-container" id="budgetsContainer">
+                <div class="no-budgets">
+                    <span class="icon">🎯</span>
+                    <p>No budgets set yet. Start by setting a budget above!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spending Tips -->
+        <div class="tips-section">
+            <h2>💡 Student Budget Tips</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <span class="tip-icon">🍱</span>
+                    <h3>Cook at Home</h3>
+                    <p>Save 60% on food by cooking instead of ordering out!</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">🚲</span>
+                    <h3>Use Public Transport</h3>
+                    <p>Monthly passes are cheaper than daily rides.</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">📱</span>
+                    <h3>Student Discounts</h3>
+                    <p>Always ask for student discounts - they add up!</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-icon">💰</span>
+                    <h3>50-30-20 Rule</h3>
+                    <p>50% needs, 30% wants, 20% savings.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/budget-planner.js"></script>
+</body>
+</html>
