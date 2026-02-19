@@ -14,7 +14,7 @@ class ExpensePredictor:
     
     def prepare_data(self):
         """Prepare and clean data"""
-        # Convert date to datetime
+       
         self.df['date'] = pd.to_datetime(self.df['date'])
         
         # Extract features
@@ -62,7 +62,7 @@ class ExpensePredictor:
         expenses = self.df[self.df['type'].isin(['withdrawal', 'transfer'])]
         
         # Get last 3 months average
-        recent = expenses.tail(90)  # Approximate last 3 months
+        recent = expenses.tail(90)  
         avg_daily = recent['amount'].mean()
         
         # Predict next month (30 days)
@@ -95,7 +95,7 @@ class ExpensePredictor:
         if savings_rate > 30:
             print("   ✅ Excellent! You're saving well.")
         elif savings_rate > 10:
-            print("   👍 Good! Try to increase to 30% for better financial health.")
+            print(" Good! Try to increase to 30% for better financial health.")
         else:
             print("   ⚠️  Low savings. Consider reducing expenses.")
         

@@ -102,7 +102,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// Remember me functionality
+//Remember me functionality
 document.getElementById('rememberMe')?.addEventListener('change', function() {
     if (this.checked) {
         const email = document.getElementById('email').value;
